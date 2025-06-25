@@ -1,0 +1,58 @@
+[gd_scene load_steps=7 format=4 uid="uid://cs1m1oxij1ylc"]
+
+[ext_resource type="Texture2D" uid="uid://di25gc0glsy3n" path="res://Assets/glb/Floor (2).png" id="1_oj3tl"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jrnp7"]
+albedo_texture = ExtResource("1_oj3tl")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3coek"]
+resource_name = "Flooe"
+cull_mode = 2
+albedo_color = Color(0.906332, 0.906332, 0.906332, 1)
+roughness = 0.5
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_em231"]
+_surfaces = [{
+"aabb": AABB(-3, 0, -3, 3, 1e-05, 3),
+"format": 34896613377,
+"index_count": 24,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAAAAIABAACAAUABgAAAAQABgAHAAAABwADAAAABwAIAAMA"),
+"name": "Flooe",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 9,
+"vertex_data": PackedByteArray("/38AAP9/AAD//wAAAAAAAP//AAD/fwAA/38AAAAAAAD/fwAA//8AAP//AAD//wAAAAAAAP//AAAAAAAA/38AAAAAAAAAAAAA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_1a4vp"]
+resource_name = "InteriorModules_Plane"
+_surfaces = [{
+"aabb": AABB(-3, 0, -3, 3, 1e-05, 3),
+"attribute_data": PackedByteArray("/3//f///AAD///9//38AAP9/////////AAD//wAA/38AAAAA"),
+"format": 34896613399,
+"index_count": 24,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAAAAIABAACAAUABgAAAAQABgAHAAAABwADAAAABwAIAAMA"),
+"material": SubResource("StandardMaterial3D_3coek"),
+"name": "Flooe",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 9,
+"vertex_data": PackedByteArray("/38AAP9//7///wAAAAD/v///AAD/f/+//38AAAAA/7//fwAA////v///AAD///+/AAAAAP///78AAAAA/3//vwAAAAAAAP+/////f////3////9/////f////3////9/////f////3////9/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_em231")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_oj3tl"]
+size = Vector3(3, 0.5, 3)
+
+[node name="Floor" type="StaticBody3D"]
+
+[node name="Floor" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_jrnp7")
+mesh = SubResource("ArrayMesh_1a4vp")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, -0.25, -1.5)
+shape = SubResource("BoxShape3D_oj3tl")

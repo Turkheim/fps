@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://d2uwqpdct86qu"]
+
+[ext_resource type="Texture2D" uid="uid://d1tgsb8u530x2" path="res://Assets/glb/Village_Village.png" id="1_3ojfm"]
+
+[resource]
+resource_name = "village"
+cull_mode = 2
+albedo_texture = ExtResource("1_3ojfm")
+metallic_specular = 0.0
+roughness = 0.5
+texture_filter = 2

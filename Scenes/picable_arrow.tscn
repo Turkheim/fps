@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://b5oqtbrgjsgx3"]
+
+[ext_resource type="Script" uid="uid://b66wl5i0rdajs" path="res://Scenes/picable_arrow.gd" id="1_emc3r"]
+[ext_resource type="PackedScene" uid="uid://jyg5ewuhax5t" path="res://Assets/glb/Arrow.glb" id="2_7ppcw"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_2u0bd"]
+radius = 0.1
+height = 0.8
+
+[node name="PickableArrow" type="Area3D"]
+disable_mode = 1
+script = ExtResource("1_emc3r")
+
+[node name="Arrow2" parent="." instance=ExtResource("2_7ppcw")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 1.74846e-08, 0.4)
+shape = SubResource("CapsuleShape3D_2u0bd")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
